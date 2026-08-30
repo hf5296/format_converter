@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONVERT.io | File Alchemy</title>
+    <meta name="description" content="Transform your files with one click. Self-hosted magic.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-badge">
+                    <span class="logo-icon">⚗️</span>
+                </div>
+                <div class="logo-text">
+                    <h1>CONVERT<span class="accent">.io</span></h1>
+                    <p class="tagline">File Alchemy • Self-Hosted</p>
+                </div>
+            </div>
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span class="status-text">SYSTEM ONLINE</span>
+            </div>
+        </header>
+
+        <!-- Description -->
+        <p class="app-description">Convert images and documents between formats instantly. Drop your files, pick a
+            format, and download the results.</p>
+
+        <!-- Main Layout - Streamlined -->
+        <main class="main-grid">
+            <!-- Sidebar: Quick Actions -->
+            <aside class="sidebar">
+                <div class="card-label">QUICK ACTIONS</div>
+                <div class="presets-list" id="presets-grid"></div>
+            </aside>
+
+            <!-- Main Panel: Unified Drop + Files -->
+            <section class="main-panel">
+                <div class="panel-header">
+                    <div class="card-label">FILES</div>
+                    <select id="output-format" class="format-select">
+                        <option value="">Convert to...</option>
+                        <optgroup label="Images">
+                            <option value="jpg">JPG</option>
+                            <option value="png">PNG</option>
+                            <option value="webp">WebP</option>
+                        </optgroup>
+                        <optgroup label="Documents">
+                            <option value="pdf">PDF</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- Drop Zone + File List (unified) -->
+                <div class="drop-area" id="drop-area">
+                    <div class="files-list" id="files-list">
+                        <!-- Empty state = drop zone -->
+                        <div class="drop-zone" id="drop-zone">
+                            <div class="drop-content">
+                                <div class="drop-icon">📂</div>
+                                <p class="drop-text">Drop files here <span>or click to browse</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="file" id="file-input" multiple hidden>
+
+                <div class="panel-footer">
+                    <div class="footer-left">
+                        <button class="btn btn-ghost" id="clear-btn">Clear All</button>
+                        <button class="btn btn-secondary" id="download-all-btn" style="display:none;">📦 Download
+                            All</button>
+                    </div>
+                    <button class="btn btn-primary" id="convert-btn" disabled>
+                        <span class="btn-glow"></span>
+                        ⚡ Convert
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span class="footer-badge">🍓 Raspberry Pi Powered</span>
+        </footer>
+
+        <!-- Toasts -->
+        <div class="toast-container" id="toast-container"></div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
